@@ -60,6 +60,8 @@ userSchema.pre("save", async function (next) {
 })
 
 userSchema.methods.isPasswordCorrect = async function (password) {
+    //saved password is this.password in mongodb
+    //password is user enter password
     return await bcrypt.compare(password, this.password)
 }
 //AccessToken not store in database
